@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokeca_wallet/views/Search.dart';
+import 'package:pokeca_wallet/views/search_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         children: [
-          const Search(),
+          const SearchView(),
           Container(
             color: Colors.blue,
           ),
