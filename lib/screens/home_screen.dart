@@ -11,6 +11,25 @@ class _HomeScreenState extends State<HomeScreen> {
   final pageController = PageController(initialPage: 0);
   int _currentIndex = 0;
 
+  @override
+  void initState() {
+    pageController.addListener(() {
+      if (pageController.page != null) {
+        setState(() {
+          _currentIndex = pageController.page!.round();
+        });
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    pageController.removeListener(() {});
+    pageController.dispose();
+    super.dispose();
+  }
+
   void _onItemTapped(int nextIndex) {
     setState(() {
       _currentIndex = nextIndex;
@@ -30,12 +49,14 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: PageView(
         controller: pageController,
+        onPageChanged: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
         children: [
           Container(
             color: Colors.red,
-          ),
-          Container(
-            color: Colors.green,
           ),
           Container(
             color: Colors.blue,
@@ -49,10 +70,6 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'SEARCH',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'HOME ',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.dashboard),
