@@ -8,10 +8,10 @@ class PokeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Card(
+    return Card(
       child: ListTile(
-        title: Text('test'),
-        subtitle: Text('test'),
+        title: Text(cardData.title),
+        subtitle: Text(cardData.packName),
       ),
     );
   }
