@@ -18,12 +18,21 @@ class SearchResults extends StatelessWidget {
       itemBuilder: (context, int index) {
         return Row(
           children: [
+            // カード1
             if (index * 3 + 1 <= cardData.length)
-              Expanded(child: PokeCard(cardData[index * 3])),
+              Expanded(
+                child: PokeCard(cardData[index * 3]),
+              ),
+            // カード2
             if (index * 3 + 2 <= cardData.length)
-              Expanded(child: PokeCard(cardData[index * 3 + 1])),
+              Expanded(
+                child: PokeCard(cardData[index * 3]),
+              ),
+            // カード3
             if (index * 3 + 3 <= cardData.length)
-              Expanded(child: PokeCard(cardData[index * 3 + 2])),
+              Expanded(
+                child: PokeCard(cardData[index * 3]),
+              ),
           ],
         );
       },

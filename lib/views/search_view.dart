@@ -11,10 +11,6 @@ class SearchView extends StatefulWidget {
 class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        SearchResults(),
-      ],
-    );
+    return const SearchResults();
   }
 }
