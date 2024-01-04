@@ -14,20 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
   @override
-  void initState() {
-    pageController.addListener(() {
-      if (pageController.page != null) {
-        setState(() {
-          _currentIndex = pageController.page!.round();
-        });
-      }
-    });
-    super.initState();
-  }
-
-  @override
   void dispose() {
-    pageController.removeListener(() {});
     pageController.dispose();
     super.dispose();
   }
