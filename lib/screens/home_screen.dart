@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokeca_wallet/views/cards_view.dart';
 import 'package:pokeca_wallet/widgets/layout/nav_bar.dart';
+import 'package:pokeca_wallet/widgets/ui/float_add_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -36,21 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Pokeca Wallet'),
       ),
-      floatingActionButton: SizedBox(
-        width: 80,
-        height: 80,
-        child: FloatingActionButton(
-          onPressed: () {},
-          shape: const CircleBorder(),
-          elevation: 10.0,
-          backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-          child: Icon(
-            Icons.add,
-            size: 40.0,
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        ),
-      ),
+      floatingActionButton: const FloatAddButton(),
       body: PageView(
         controller: pageController,
         onPageChanged: (index) {
