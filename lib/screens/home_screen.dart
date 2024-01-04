@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokeca_wallet/views/search_view.dart';
+import 'package:pokeca_wallet/views/cards_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         children: [
-          const SearchView(),
+          const CardsView(),
           Container(
             color: Colors.blue,
           ),
@@ -67,13 +67,13 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _onItemTapped,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'SEARCH',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.dashboard),
             label: 'CARDS',
-          )
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'ACCOUNT',
+          ),
         ],
       ),
     );

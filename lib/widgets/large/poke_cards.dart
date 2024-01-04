@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pokeca_wallet/models/card_data.dart';
 import 'package:pokeca_wallet/widgets/middle/poke_card.dart';
 
-class SearchResults extends StatelessWidget {
-  const SearchResults({super.key});
+class PokeCards extends StatelessWidget {
+  const PokeCards({super.key});
 
   static List<CardData> cardData = [
     CardData(title: 'test', packName: 'test', image: 'test', url: 'test'),
