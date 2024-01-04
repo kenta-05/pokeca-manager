@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokeca_wallet/views/cards_view.dart';
+import 'package:pokeca_wallet/widgets/layout/nav_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -62,19 +63,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: NavBar(
         currentIndex: _currentIndex,
-        onTap: _onItemTapped,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
-            label: 'CARDS',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'ACCOUNT',
-          ),
-        ],
+        onItemTapped: _onItemTapped,
       ),
     );
   }
