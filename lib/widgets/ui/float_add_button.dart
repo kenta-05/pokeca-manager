@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokeca_wallet/widgets/parts/add_modal.dart';
 
 class FloatAddButton extends StatelessWidget {
   const FloatAddButton({super.key});
@@ -9,7 +10,14 @@ class FloatAddButton extends StatelessWidget {
       width: 80,
       height: 80,
       child: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AddModal();
+            },
+          );
+        },
         shape: const CircleBorder(),
         elevation: 10.0,
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
