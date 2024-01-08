@@ -25,6 +25,14 @@ class _AddModalState extends ConsumerState<AddModal> {
         child: IntrinsicHeight(
           child: Column(
             children: [
+              Align(
+                alignment: Alignment.topLeft,
+                child: OutlinedButton.icon(
+                  icon: const Icon(Icons.camera_alt),
+                  label: const Text('Take Photo'),
+                  onPressed: () {},
+                ),
+              ),
               TextFormField(
                 initialValue: cardData.title,
                 decoration: const InputDecoration(labelText: 'Title'),
