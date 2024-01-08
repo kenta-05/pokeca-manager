@@ -1,23 +1,25 @@
+import 'dart:typed_data';
+
 class CardData {
   String title;
   String packName;
-  String image;
-  String url;
+  int cost;
+  Uint8List? imageData;
 
   CardData({
     required this.title,
     required this.packName,
-    required this.image,
-    required this.url,
+    required this.cost,
+    this.imageData,
   });
 
   CardData copyWith(
-      {String? title, String? packName, String? image, String? url}) {
+      {String? title, String? packName, int? cost, Uint8List? imageData}) {
     return CardData(
       title: title ?? this.title,
       packName: packName ?? this.packName,
-      image: image ?? this.image,
-      url: url ?? this.url,
+      cost: cost ?? this.cost,
+      imageData: imageData ?? this.imageData,
     );
   }
 
@@ -25,8 +27,8 @@ class CardData {
     return CardData(
       title: json['title'],
       packName: json['packName'],
-      image: json['image'],
-      url: json['url'],
+      cost: json['cost'],
+      imageData: json['imageData'],
     );
   }
 }

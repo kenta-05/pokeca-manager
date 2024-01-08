@@ -46,16 +46,12 @@ class _AddModalState extends ConsumerState<AddModal> {
                     ref.read(addModalProvider.notifier).setPackName(value),
               ),
               TextFormField(
-                initialValue: cardData.image,
-                decoration: const InputDecoration(labelText: 'Image URL'),
-                onChanged: (value) =>
-                    ref.read(addModalProvider.notifier).setImage(value),
-              ),
-              TextFormField(
-                initialValue: cardData.url,
-                decoration: const InputDecoration(labelText: 'External URL'),
-                onChanged: (value) =>
-                    ref.read(addModalProvider.notifier).setUrl(value),
+                initialValue: cardData.packName,
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(labelText: 'Cost'),
+                onChanged: (value) => int.tryParse(value) != null
+                    ? ref.read(addModalProvider.notifier).setPackName(value)
+                    : null,
               ),
               const SizedBox(height: 12),
               Align(

@@ -1,9 +1,16 @@
+import 'dart:typed_data';
+
 import 'package:pokeca_wallet/models/card_data.dart';
 import 'package:riverpod/riverpod.dart';
 
 class AddModalNotifier extends StateNotifier<CardData> {
   AddModalNotifier()
-      : super(CardData(title: '', packName: '', image: '', url: ''));
+      : super(CardData(
+          title: '',
+          packName: '',
+          cost: 0,
+          imageData: null,
+        ));
 
   void setTitle(String title) {
     state = state.copyWith(title: title);
@@ -13,12 +20,12 @@ class AddModalNotifier extends StateNotifier<CardData> {
     state = state.copyWith(packName: packName);
   }
 
-  void setImage(String image) {
-    state = state.copyWith(image: image);
+  void setCost(int cost) {
+    state = state.copyWith(cost: cost);
   }
 
-  void setUrl(String url) {
-    state = state.copyWith(url: url);
+  void setImageData(Uint8List imageData) {
+    state = state.copyWith(imageData: imageData);
   }
 }
 

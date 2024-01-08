@@ -6,9 +6,9 @@ class PokeCards extends StatelessWidget {
   const PokeCards({super.key});
 
   static List<CardData> cardData = [
-    CardData(title: 'test', packName: 'test', image: 'test', url: 'test'),
-    CardData(title: 'test', packName: 'test', image: 'test', url: 'test'),
-    CardData(title: 'test', packName: 'test', image: 'test', url: 'test'),
+    CardData(title: '', packName: '', cost: 0),
+    CardData(title: '', packName: '', cost: 0),
+    CardData(title: '', packName: '', cost: 0),
   ];
 
   @override
