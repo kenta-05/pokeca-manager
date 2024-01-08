@@ -20,24 +20,27 @@ class _AddModalState extends ConsumerState<AddModal> {
         child: ListBody(
           children: <Widget>[
             TextFormField(
-              initialValue: cardData.title,
-              decoration: InputDecoration(labelText: 'Title'),
-              onChanged: (value) => cardData.title = value,
-            ),
+                initialValue: cardData.title,
+                decoration: InputDecoration(labelText: 'Title'),
+                onChanged: (value) =>
+                    ref.read(addModalProvider.notifier).setTitle(value)),
             TextFormField(
               initialValue: cardData.packName,
               decoration: InputDecoration(labelText: 'Pack Name'),
-              onChanged: (value) => cardData.packName = value,
+              onChanged: (value) =>
+                  ref.read(addModalProvider.notifier).setPackName(value),
             ),
             TextFormField(
               initialValue: cardData.image,
               decoration: InputDecoration(labelText: 'Image URL'),
-              onChanged: (value) => cardData.image = value,
+              onChanged: (value) =>
+                  ref.read(addModalProvider.notifier).setImage(value),
             ),
             TextFormField(
               initialValue: cardData.url,
               decoration: InputDecoration(labelText: 'External URL'),
-              onChanged: (value) => cardData.url = value,
+              onChanged: (value) =>
+                  ref.read(addModalProvider.notifier).setUrl(value),
             ),
           ],
         ),
