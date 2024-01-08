@@ -11,6 +11,16 @@ class CardData {
     required this.url,
   });
 
+  CardData copyWith(
+      {String? title, String? packName, String? image, String? url}) {
+    return CardData(
+      title: title ?? this.title,
+      packName: packName ?? this.packName,
+      image: image ?? this.image,
+      url: url ?? this.url,
+    );
+  }
+
   factory CardData.fromJson(Map<String, dynamic> json) {
     return CardData(
       title: json['title'],
