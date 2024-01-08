@@ -6,9 +6,12 @@ class PokeCards extends StatelessWidget {
   const PokeCards({super.key});
 
   static List<CardData> cardData = [
-    CardData(title: '', packName: '', cost: 0),
-    CardData(title: '', packName: '', cost: 0),
-    CardData(title: '', packName: '', cost: 0),
+    CardData(title: 'test1', packName: 'test1', cost: 0),
+    CardData(title: 'test2', packName: 'test2', cost: 0),
+    CardData(title: 'test3', packName: 'test3', cost: 0),
+    CardData(title: 'test4', packName: 'test4', cost: 0),
+    CardData(title: 'test5', packName: 'test5', cost: 0),
+    CardData(title: 'test6', packName: 'test6', cost: 0),
   ];
 
   @override
@@ -27,12 +30,12 @@ class PokeCards extends StatelessWidget {
               // カード2
               if (index * 3 + 2 <= cardData.length)
                 Expanded(
-                  child: PokeCard(cardData[index * 3]),
+                  child: PokeCard(cardData[index * 3 + 1]),
                 ),
               // カード3
               if (index * 3 + 3 <= cardData.length)
                 Expanded(
-                  child: PokeCard(cardData[index * 3]),
+                  child: PokeCard(cardData[index * 3 + 2]),
                 ),
             ],
           );
