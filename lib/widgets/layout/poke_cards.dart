@@ -17,28 +17,16 @@ class PokeCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView.builder(
-        itemCount: (cardData.length / 3).ceil(),
-        itemBuilder: (context, int index) {
-          return Row(
-            children: [
-              // カード1
-              if (index * 3 + 1 <= cardData.length)
-                Expanded(
-                  child: PokeCard(cardData[index * 3]),
-                ),
-              // カード2
-              if (index * 3 + 2 <= cardData.length)
-                Expanded(
-                  child: PokeCard(cardData[index * 3 + 1]),
-                ),
-              // カード3
-              if (index * 3 + 3 <= cardData.length)
-                Expanded(
-                  child: PokeCard(cardData[index * 3 + 2]),
-                ),
-            ],
-          );
+      child: GridView.builder(
+        padding: const EdgeInsets.all(6),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          crossAxisSpacing: 6,
+          mainAxisSpacing: 6,
+        ),
+        itemCount: cardData.length,
+        itemBuilder: (context, index) {
+          return PokeCard(cardData[index]);
         },
       ),
     );
