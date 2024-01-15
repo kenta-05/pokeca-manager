@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "561519382926",
+    "project_id": "pokeca-wallet",
+    "storage_bucket": "pokeca-wallet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561519382926:android:eefcd3831996c963c814df",
+        "android_client_info": {
+          "package_name": "com.example.pokeca_wallet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPzrSDrVLyeHIMZCbHcVKRVGZdzZ3DWAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
