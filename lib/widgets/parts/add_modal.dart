@@ -16,24 +16,25 @@ class _AddModalState extends ConsumerState<AddModal> {
   @override
   Widget build(BuildContext context) {
     final cardData = ref.watch(addModalProvider);
-    Future<void> _takePhoto() async {
-      final ImagePicker picker = ImagePicker();
+    // カメラ機能はいずれ実装
+    // Future<void> _takePhoto() async {
+    //   final ImagePicker picker = ImagePicker();
 
-      try {
-        final XFile? photo = await picker.pickImage(source: ImageSource.camera);
+    //   try {
+    //     final XFile? photo = await picker.pickImage(source: ImageSource.camera);
 
-        if (photo != null) {
-          // Convert to Uint8List
-          Uint8List imageBytes = await photo.readAsBytes();
-          // Handle the imageBytes
-        } else {
-          // User canceled the picker or the operation failed
-        }
-      } catch (e) {
-        print("Error taking photo: $e");
-        // Handle the error, maybe show an alert to the user
-      }
-    }
+    //     if (photo != null) {
+    //       // Convert to Uint8List
+    //       Uint8List imageBytes = await photo.readAsBytes();
+    //       // Handle the imageBytes
+    //     } else {
+    //       // User canceled the picker or the operation failed
+    //     }
+    //   } catch (e) {
+    //     print("Error taking photo: $e");
+    //     // Handle the error, maybe show an alert to the user
+    //   }
+    // }
 
     return Dialog(
       child: Container(
@@ -46,16 +47,17 @@ class _AddModalState extends ConsumerState<AddModal> {
         child: IntrinsicHeight(
           child: Column(
             children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: OutlinedButton.icon(
-                  icon: const Icon(Icons.camera_alt),
-                  label: const Text('Take Photo'),
-                  onPressed: () async {
-                    await _takePhoto();
-                  },
-                ),
-              ),
+              // カメラ機能はいずれ実装
+              // Align(
+              //   alignment: Alignment.topLeft,
+              //   child: OutlinedButton.icon(
+              //     icon: const Icon(Icons.camera_alt),
+              //     label: const Text('Take Photo'),
+              //     onPressed: () async {
+              //       await _takePhoto();
+              //     },
+              //   ),
+              // ),
               TextFormField(
                 initialValue: cardData.title,
                 decoration: const InputDecoration(labelText: 'Title'),
