@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pokeca_wallet/models/card_data.dart';
 import 'package:pokeca_wallet/providers/add_modal_provider.dart';
+import 'package:pokeca_wallet/services/firebase_setup.dart';
 
 class AddModal extends ConsumerStatefulWidget {
   const AddModal({super.key});
@@ -38,6 +39,7 @@ class _AddModalState extends ConsumerState<AddModal> {
     // }
 
     void saveCardData(CardData cardData) {
+      final db = getFirestoreInstance();
       cardData.toJson();
     }
 
