@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pokeca_wallet/models/card_data.dart';
 import 'package:pokeca_wallet/providers/add_modal_provider.dart';
 
 class AddModal extends ConsumerStatefulWidget {
@@ -35,6 +36,10 @@ class _AddModalState extends ConsumerState<AddModal> {
     //     // Handle the error, maybe show an alert to the user
     //   }
     // }
+
+    void saveCardData(CardData cardData) {
+      cardData.toJson();
+    }
 
     return Dialog(
       child: Container(
@@ -83,6 +88,7 @@ class _AddModalState extends ConsumerState<AddModal> {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
+                    saveCardData(cardData);
                     Navigator.pop(context);
                   },
                   child: const Text('Add'),

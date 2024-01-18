@@ -23,6 +23,15 @@ class CardData {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'packName': packName,
+      'cost': cost,
+      'imageData': imageData,
+    };
+  }
+
   factory CardData.fromJson(Map<String, dynamic> json) {
     return CardData(
       title: json['title'],
