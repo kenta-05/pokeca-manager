@@ -40,7 +40,20 @@ class _AddModalState extends ConsumerState<AddModal> {
 
     void saveCardData(CardData cardData) {
       final db = getFirestoreInstance();
-      cardData.toJson();
+      final jsonCardData = cardData.toJson();
+
+      db
+          .collection("cards")
+          .doc()
+          .set(jsonCardData)
+          .onError((e, _) => print("Error writing document: $e"));
+
+      cardData.copyWith(
+        title: '',
+        packName: '',
+        cost: null,
+        imageData: null,
+      );
     }
 
     return Dialog(
