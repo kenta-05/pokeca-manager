@@ -11,7 +11,9 @@ class FirebaseSetup {
     );
   }
 
-  FirebaseFirestore getFirestoreInstance() {
-    return FirebaseFirestore.instance;
+  final FirebaseFirestore db = FirebaseFirestore.instance;
+
+  DocumentReference getUserDocRef(currentUid) {
+    return FirebaseFirestore.instance.collection("users").doc(currentUid);
   }
 }
