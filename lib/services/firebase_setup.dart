@@ -9,6 +9,7 @@ Future<void> initializeFirebase() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  print("Initialized Firebase");
 
   try {
     final userCredential = await FirebaseAuth.instance.signInAnonymously();
@@ -24,6 +25,6 @@ Future<void> initializeFirebase() async {
   }
 }
 
-FirebaseFirestore getFirestoreInstance() {
-  return FirebaseFirestore.instance;
-}
+// FirebaseFirestore getFirestoreInstance() {
+//   return FirebaseFirestore.instance;
+// }

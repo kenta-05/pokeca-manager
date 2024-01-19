@@ -6,7 +6,7 @@ import 'package:pokeca_wallet/themes/light.dart';
 import 'package:pokeca_wallet/themes/dark.dart';
 
 Future<void> main() async {
-  initializeFirebase();
+  await initializeFirebase();
 
   runApp(
     const ProviderScope(
