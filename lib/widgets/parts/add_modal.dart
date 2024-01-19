@@ -38,7 +38,7 @@ class _AddModalState extends ConsumerState<AddModal> {
 
     void saveCardData(CardData cardData) {
       final jsonCardData = cardData.toJson();
-      CardsService().addCards(jsonCardData);
+      CardsService.addCards(jsonCardData);
 
       ref.read(addModalProvider.notifier).reset();
     }
