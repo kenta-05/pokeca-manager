@@ -43,7 +43,7 @@ class _AddModalState extends ConsumerState<AddModal> {
     // }
 
     void saveCardData(CardData cardData) {
-      final db = getFirestoreInstance();
+      final db = FirebaseSetup().getFirestoreInstance();
       final jsonCardData = cardData.toJson();
 
       db
@@ -54,12 +54,7 @@ class _AddModalState extends ConsumerState<AddModal> {
           .then((docRef) => print("Document added with ID: ${docRef.id}"))
           .catchError((error) => print("Error adding document: $error"));
 
-      cardData.copyWith(
-        title: '',
-        packName: '',
-        cost: 0,
-        imageData: null,
-      );
+      ref.read(addModalProvider.notifier).reset();
     }
 
     return Dialog(

@@ -27,6 +27,15 @@ class AddModalNotifier extends StateNotifier<CardData> {
   void setImageData(Uint8List imageData) {
     state = state.copyWith(imageData: imageData);
   }
+
+  void reset() {
+    state = state.copyWith(
+      title: '',
+      packName: '',
+      cost: 0,
+      imageData: null,
+    );
+  }
 }
 
 final addModalProvider =
