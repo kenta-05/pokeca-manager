@@ -43,7 +43,7 @@ class _AddModalState extends ConsumerState<AddModal> {
     // }
 
     void saveCardData(CardData cardData) {
-      final db = FirebaseSetup().db;
+      final db = FirebaseSetup.db;
       final jsonCardData = cardData.toJson();
 
       db

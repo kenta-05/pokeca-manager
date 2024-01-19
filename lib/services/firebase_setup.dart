@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:pokeca_wallet/firebase_options.dart';
 
 class FirebaseSetup {
-  Future<void> initializeFirebase() async {
+  static Future<void> initializeFirebase() async {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
   }
 
-  final FirebaseFirestore db = FirebaseFirestore.instance;
+  static final FirebaseFirestore db = FirebaseFirestore.instance;
 
-  DocumentReference getUserDocRef(currentUid) {
-    return FirebaseFirestore.instance.collection("users").doc(currentUid);
+  static DocumentReference getUserDocRef(currentUid) {
+    return db.collection("users").doc(currentUid);
   }
 }
