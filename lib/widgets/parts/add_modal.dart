@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokeca_wallet/models/card_data.dart';
@@ -44,11 +43,10 @@ class _AddModalState extends ConsumerState<AddModal> {
     // }
 
     void saveCardData(CardData cardData) {
-      // final db = getFirestoreInstance();
-      FirebaseFirestore firestore = FirebaseFirestore.instance;
+      final db = getFirestoreInstance();
       final jsonCardData = cardData.toJson();
 
-      firestore
+      db
           .collection("users")
           .doc(deviceId)
           .collection("cards")
@@ -59,7 +57,7 @@ class _AddModalState extends ConsumerState<AddModal> {
       cardData.copyWith(
         title: '',
         packName: '',
-        cost: null,
+        cost: 0,
         imageData: null,
       );
     }

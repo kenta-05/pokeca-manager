@@ -25,6 +25,6 @@ Future<void> initializeFirebase() async {
   }
 }
 
-// FirebaseFirestore getFirestoreInstance() {
-//   return FirebaseFirestore.instance;
-// }
+FirebaseFirestore getFirestoreInstance() {
+  return FirebaseFirestore.instance;
+}
