@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokeca_wallet/models/card_data.dart';
 import 'package:pokeca_wallet/providers/add_modal_provider.dart';
-import 'package:pokeca_wallet/providers/device_id_provider.dart';
-import 'package:pokeca_wallet/services/firebase_setup.dart';
+import 'package:pokeca_wallet/services/cards_service.dart';
 
 class AddModal extends ConsumerStatefulWidget {
   const AddModal({super.key});
@@ -16,11 +15,6 @@ class _AddModalState extends ConsumerState<AddModal> {
   @override
   Widget build(BuildContext context) {
     final cardData = ref.watch(addModalProvider);
-    final deviceId = ref.watch(deviceIdProvider).when(
-          data: (String? value) => value,
-          loading: () => null,
-          error: (e, stack) => null,
-        );
 
     // カメラ機能はいずれ実装
     // Future<void> _takePhoto() async {
@@ -43,16 +37,8 @@ class _AddModalState extends ConsumerState<AddModal> {
     // }
 
     void saveCardData(CardData cardData) {
-      final db = FirebaseSetup.db;
       final jsonCardData = cardData.toJson();
-
-      db
-          .collection("users")
-          .doc(deviceId)
-          .collection("cards")
-          .add(jsonCardData)
-          .then((docRef) => print("Document added with ID: ${docRef.id}"))
-          .catchError((error) => print("Error adding document: $error"));
+      CardsService().addCards(jsonCardData);
 
       ref.read(addModalProvider.notifier).reset();
     }
