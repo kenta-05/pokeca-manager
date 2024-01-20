@@ -17,12 +17,21 @@ class CardsService {
   }
 
   static Future<List<Map<String, dynamic>>> getCards() async {
+    // get cards from subcollection("cards") of user document by deviceId
     try {
       final deviceId = await Util.getDeviceId();
       final userDocRef = FirebaseSetup.getUserDocRef(deviceId);
 
-      DocumentSnapshot doc = await userDocRef.get();
-      return doc.data() as List<Map<String, dynamic>>;
+      QuerySnapshot cardsQuerySnapshot =
+          await userDocRef.collection("cards").get();
+      List<DocumentSnapshot> documentSnapshots = cardsQuerySnapshot.docs;
+
+      // extract actual data from DocumentSnapshot list
+      List<Map<String, dynamic>> cardsDataList =
+          documentSnapshots.map((snapshot) {
+        return snapshot.data() as Map<String, dynamic>;
+      }).toList();
+      return cardsDataList;
     } catch (e) {
       print("Error getting document: $e");
       return [{}];
