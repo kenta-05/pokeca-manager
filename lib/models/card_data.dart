@@ -32,6 +32,15 @@ class CardData {
     };
   }
 
+  factory CardData.fromMap(Map<String, dynamic> map) {
+    return CardData(
+      title: map['title'] ?? '',
+      packName: map['packName'] ?? '',
+      cost: map['cost'] ?? 0,
+      imageData: map['imageData'] ?? Uint8List(0),
+    );
+  }
+
   factory CardData.fromJson(Map<String, dynamic> json) {
     return CardData(
       title: json['title'],

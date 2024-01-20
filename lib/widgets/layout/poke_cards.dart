@@ -27,10 +27,11 @@ class PokeCards extends StatelessWidget {
               ),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
-                return PokeCard(snapshot.data![index]);
+                return PokeCard(CardData.fromMap(snapshot.data![index]));
               },
             );
           }
+          return const Center(child: Text('Unknown Error'));
         },
       ),
     );
