@@ -16,16 +16,16 @@ class CardsService {
         .catchError((error) => print("Error adding document: $error"));
   }
 
-  static Future<Map<String, dynamic>> getCards() async {
+  static Future<List<Map<String, dynamic>>> getCards() async {
     try {
       final deviceId = await Util.getDeviceId();
       final userDocRef = FirebaseSetup.getUserDocRef(deviceId);
 
       DocumentSnapshot doc = await userDocRef.get();
-      return doc.data() as Map<String, dynamic>;
+      return doc.data() as List<Map<String, dynamic>>;
     } catch (e) {
       print("Error getting document: $e");
-      return {};
+      return [{}];
     }
   }
 }
