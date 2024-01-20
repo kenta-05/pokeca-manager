@@ -16,25 +16,21 @@ class CardsService {
         .catchError((error) => print("Error adding document: $error"));
   }
 
-  static Future<List<Map<String, dynamic>>> getCards() async {
+  static Stream<List<Map<String, dynamic>>> getCards() async* {
     // get cards from subcollection("cards") of user document by deviceId
     try {
       final deviceId = await Util.getDeviceId();
       final userDocRef = FirebaseSetup.getUserDocRef(deviceId);
 
-      QuerySnapshot cardsQuerySnapshot =
-          await userDocRef.collection("cards").get();
-      List<DocumentSnapshot> documentSnapshots = cardsQuerySnapshot.docs;
-
       // extract actual data from DocumentSnapshot list
-      List<Map<String, dynamic>> cardsDataList =
-          documentSnapshots.map((snapshot) {
-        return snapshot.data() as Map<String, dynamic>;
-      }).toList();
-      return cardsDataList;
+      yield* userDocRef.collection("cards").snapshots().map((snapshot) {
+        return snapshot.docs
+            .map((doc) => doc.data() as Map<String, dynamic>)
+            .toList();
+      });
     } catch (e) {
       print("Error getting document: $e");
-      return [{}];
+      yield [{}];
     }
   }
 }

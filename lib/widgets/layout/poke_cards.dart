@@ -9,8 +9,8 @@ class PokeCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: FutureBuilder<List<Map<String, dynamic>>>(
-        future: CardsService.getCards(),
+      child: StreamBuilder<List<Map<String, dynamic>>>(
+        stream: CardsService.getCards(),
         builder: (BuildContext context,
             AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
