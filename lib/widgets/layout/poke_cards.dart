@@ -19,12 +19,12 @@ class PokeCards extends StatelessWidget {
             return const Center(child: Text('Error'));
           } else if (snapshot.hasData) {
             return GridView.builder(
-              padding: const EdgeInsets.all(6),
+              padding: const EdgeInsets.all(16),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                crossAxisSpacing: 6,
-                mainAxisSpacing: 6,
-              ),
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 24,
+                  mainAxisSpacing: 24,
+                  childAspectRatio: 3 / 2),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return PokeCard(CardData.fromMap(snapshot.data![index]));

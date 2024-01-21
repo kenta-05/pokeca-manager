@@ -8,10 +8,22 @@ class PokeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        title: Text(cardData.title),
-        subtitle: Text(cardData.packName),
+    return Container(
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primaryContainer,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(cardData.title),
+            Text(cardData.packName),
+            Text(cardData.cost.toString()),
+            // 他のTextウィジェットを追加可能
+          ],
+        ),
       ),
     );
   }
