@@ -24,7 +24,7 @@ class PokeCards extends StatelessWidget {
                   crossAxisCount: 2,
                   crossAxisSpacing: 24,
                   mainAxisSpacing: 24,
-                  childAspectRatio: 3 / 2),
+                  childAspectRatio: 3 / 4),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return PokeCard(CardData.fromMap(snapshot.data![index]));
