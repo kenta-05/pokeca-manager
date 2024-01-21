@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pokeca_wallet/services/firebase_setup.dart';
 import 'package:pokeca_wallet/services/util.dart';
 
@@ -10,7 +11,7 @@ class CardsService {
         .collection("users")
         .doc(deviceId)
         .collection("cards")
-        .add(jsonCardData)
+        .add({...jsonCardData, 'createdAt': FieldValue.serverTimestamp()})
         .then((docRef) => print("Document added with ID: ${docRef.id}"))
         .catchError((error) => print("Error adding document: $error"));
   }
@@ -22,7 +23,11 @@ class CardsService {
       final userDocRef = FirebaseSetup.getUserDocRef(deviceId);
 
       // extract actual data from DocumentSnapshot list
-      yield* userDocRef.collection("cards").snapshots().map((snapshot) {
+      yield* userDocRef
+          .collection("cards")
+          .orderBy('createdAt', descending: true)
+          .snapshots()
+          .map((snapshot) {
         return snapshot.docs.map((doc) => doc.data()).toList();
       });
     } catch (e) {
