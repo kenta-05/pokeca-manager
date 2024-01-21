@@ -82,7 +82,9 @@ class _AddModalState extends ConsumerState<AddModal> {
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(labelText: 'Cost'),
                 onChanged: (value) => int.tryParse(value) != null
-                    ? ref.read(addModalProvider.notifier).setPackName(value)
+                    ? ref
+                        .read(addModalProvider.notifier)
+                        .setCost(int.parse(value))
                     : null,
               ),
               const SizedBox(height: 12),
