@@ -21,10 +21,10 @@ class PokeCards extends StatelessWidget {
             return GridView.builder(
               padding: const EdgeInsets.all(16),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 24,
-                  mainAxisSpacing: 24,
-                  childAspectRatio: 3 / 4),
+                crossAxisCount: 1,
+                crossAxisSpacing: 24,
+                mainAxisSpacing: 24,
+              ),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return PokeCard(CardData.fromMap(snapshot.data![index]));

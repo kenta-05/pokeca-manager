@@ -11,8 +11,8 @@ class PokeCard extends StatelessWidget {
     return FittedBox(
       alignment: Alignment.topCenter,
       child: Container(
-        width: 130,
-        height: 100,
+        width: 300,
+        height: 150,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primaryContainer,
           borderRadius: BorderRadius.circular(8),
@@ -29,7 +29,7 @@ class PokeCard extends StatelessWidget {
             children: [
               Text(cardData.title,
                   style: Theme.of(context).textTheme.titleMedium),
-              Text(cardData.packName,
+              Text('(${cardData.packName})',
                   style: Theme.of(context).textTheme.titleSmall),
               const Spacer(),
               Text('${cardData.cost}円',
