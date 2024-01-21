@@ -6,7 +6,8 @@ final lightTheme = ThemeData(
     seedColor: const Color.fromARGB(255, 73, 109, 255),
     brightness: Brightness.light,
   ).copyWith(
-    primaryContainer: Colors.white, // ここでprimaryContainerの色を上書き
+    primaryContainer:
+        const Color.fromARGB(255, 241, 242, 255), // ここでprimaryContainerの色を上書き
   ),
   textTheme: const TextTheme(),
 );
