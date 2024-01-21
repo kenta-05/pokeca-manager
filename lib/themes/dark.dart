@@ -10,6 +10,7 @@ final darkTheme = ThemeData(
   ),
   textTheme: const TextTheme(
     titleMedium: TextStyle(
+      fontSize: 20,
       fontWeight: FontWeight.bold,
     ),
     titleSmall: TextStyle(
