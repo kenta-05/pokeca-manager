@@ -17,15 +17,16 @@ class PokeCard extends StatelessWidget {
           color: Theme.of(context).colorScheme.primaryContainer,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(8),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(cardData.title),
-              Text(cardData.packName),
+              Text(cardData.title,
+                  style: Theme.of(context).textTheme.titleMedium),
+              Text(cardData.packName,
+                  style: Theme.of(context).textTheme.titleSmall),
               Text(cardData.cost.toString()),
-              // 他のTextウィジェットを追加可能
             ],
           ),
         ),

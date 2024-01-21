@@ -9,5 +9,14 @@ final lightTheme = ThemeData(
     primaryContainer:
         const Color.fromARGB(255, 241, 242, 255), // ここでprimaryContainerの色を上書き
   ),
-  textTheme: const TextTheme(),
+  textTheme: const TextTheme(
+    titleMedium: TextStyle(
+      fontWeight: FontWeight.bold,
+    ),
+    titleSmall: TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.normal,
+      color: Color.fromARGB(255, 84, 84, 84),
+    ),
+  ),
 );
