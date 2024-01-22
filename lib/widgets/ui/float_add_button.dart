@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokeca_wallet/widgets/parts/add_modal.dart';
+import 'package:pokeca_wallet/widgets/modals/add_modal.dart';
 
 class FloatAddButton extends StatelessWidget {
   const FloatAddButton({super.key});

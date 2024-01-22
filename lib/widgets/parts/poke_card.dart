@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokeca_wallet/models/card_data.dart';
+import 'package:pokeca_wallet/widgets/modals/edit_modal.dart';
 
 class PokeCard extends StatelessWidget {
   const PokeCard(this.cardData, {super.key});
@@ -38,11 +39,33 @@ class PokeCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             const Spacer(),
-            Text(
-              '${cardData.cost}円',
-              style: Theme.of(context).textTheme.titleMedium,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
+            Row(
+              children: [
+                Text(
+                  '${cardData.cost}円',
+                  style: Theme.of(context).textTheme.titleMedium,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const Spacer(),
+                Container(
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 219, 219, 240),
+                    shape: BoxShape.circle,
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return const EditModal();
+                        },
+                      );
+                    },
+                    icon: const Icon(Icons.edit),
+                  ),
+                )
+              ],
             ),
           ],
         ),
