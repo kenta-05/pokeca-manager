@@ -82,12 +82,28 @@ class _AddModalState extends ConsumerState<AddModal> {
                   decoration: const InputDecoration(labelText: 'Title'),
                   onChanged: (value) =>
                       ref.read(addModalProvider.notifier).setTitle(value),
+                  validator: ((value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter some text.';
+                    } else if (value.length > 25) {
+                      return 'Title must be less than 25 characters.';
+                    }
+                    return null;
+                  }),
                 ),
                 TextFormField(
                   initialValue: cardData.packName,
                   decoration: const InputDecoration(labelText: 'Pack Name'),
                   onChanged: (value) =>
                       ref.read(addModalProvider.notifier).setPackName(value),
+                  validator: ((value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter some text.';
+                    } else if (value.length > 25) {
+                      return 'Pack Name must be less than 25 characters.';
+                    }
+                    return null;
+                  }),
                 ),
                 TextFormField(
                   initialValue: cardData.packName,
@@ -98,6 +114,14 @@ class _AddModalState extends ConsumerState<AddModal> {
                           .read(addModalProvider.notifier)
                           .setCost(int.parse(value))
                       : null,
+                  validator: ((value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter some text.';
+                    } else if (double.tryParse(value) == null) {
+                      return 'Cost must be an integer.';
+                    }
+                    return null;
+                  }),
                 ),
                 const SizedBox(height: 12),
                 Align(
