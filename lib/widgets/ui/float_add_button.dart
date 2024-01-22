@@ -14,7 +14,7 @@ class FloatAddButton extends StatelessWidget {
           showDialog(
             context: context,
             builder: (BuildContext context) {
-              return AddModal();
+              return const AddModal();
             },
           );
         },
