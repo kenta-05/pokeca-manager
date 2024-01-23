@@ -20,4 +20,9 @@ final lightTheme = ThemeData(
       color: Color.fromARGB(255, 84, 84, 84),
     ),
   ),
+  dialogTheme: DialogTheme(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(4),
+    ),
+  ),
 );
