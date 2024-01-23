@@ -16,7 +16,9 @@ class _EditModalState extends State<EditModal> {
   @override
   Widget build(context) {
     return AlertDialog(
-      title: const Text('Edit Modal'),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -68,7 +70,7 @@ class _EditModalState extends State<EditModal> {
             // Use titleValue, packNameValue, and costValue here
             Navigator.of(context).pop();
           },
-          child: const Text('Conferm'),
+          child: const Text('Edit'),
         ),
       ],
     );
