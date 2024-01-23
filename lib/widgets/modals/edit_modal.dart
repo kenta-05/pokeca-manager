@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokeca_wallet/widgets/modals/delete_confirmation_modal.dart';
 
 class EditModal extends StatefulWidget {
   const EditModal({super.key});
@@ -16,9 +17,6 @@ class _EditModalState extends State<EditModal> {
   @override
   Widget build(context) {
     return AlertDialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -64,10 +62,20 @@ class _EditModalState extends State<EditModal> {
           ),
         ],
       ),
-      actions: <Widget>[
+      actions: [
         TextButton(
           onPressed: () {
-            // Use titleValue, packNameValue, and costValue here
+            Navigator.of(context).pop();
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return const DeleteConfirmationModal();
+                });
+          },
+          child: const Text('Delete'),
+        ),
+        TextButton(
+          onPressed: () {
             Navigator.of(context).pop();
           },
           child: const Text('Edit'),
